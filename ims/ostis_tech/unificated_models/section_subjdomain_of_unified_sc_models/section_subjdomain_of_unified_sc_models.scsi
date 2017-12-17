@@ -10,6 +10,8 @@ subjdomain_of_unified_sc_models
 	[Subject domain of sc-model of computer systems]
 	(* <- lang_en;; *);
 <- subject_domain;
+<- sc_node_struct;
+<- structure;
 -> rrel_maximum_studied_object_class: sc_model_computer_systems;
 -> rrel_not_maximum_studied_object_class:
 	sc_model_of_knowledge_base;
@@ -26,7 +28,7 @@ sc_model_computer_systems
 	(* <- lang_ru;; *);
 	[sc-model of computer system]
 	(* <- lang_en;; *);
-<= nrel_basic_decomposition:
+<= nrel_abstract_basic_decomposition:
 	{
 	sc_memory;
 	sc_model_of_knowledge_base;

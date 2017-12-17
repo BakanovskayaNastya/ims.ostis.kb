@@ -1,8 +1,8 @@
 lib_component_agent_of_checking_existence_of_max_studied_object_class_of_subject_domain
 => nrel_main_idtf:
-	[Компонент библиотеки. sc-агент проверки наличия максимального класса объектов исследования у предметных областей]
+	[Компонент библиотеки. sc-агент проверки указания максимального класса объектов исследования у предметных областей в рамках заданной структуры]
 	(* <- lang_ru;; *);
-	[Library component. sc-agent of checking existence of maximum studied object class of subject domain]
+	[Library component. sc-agent of сhecking existence of maximum studied object class of subject domains within the given structure]
 	(* <- lang_en;; *);
 
 <- library_of_platform_independent_reusable_components; 
@@ -10,6 +10,7 @@ lib_component_agent_of_checking_existence_of_max_studied_object_class_of_subject
 
 => nrel_attendant_component: 
 	lib_component_ui_menu_file_for_checking_existence_of_max_studied_object_class;
+	lib_component_ui_menu_file_for_checking_existence_of_max_studied_object_class_with_context;
 
 -> rrel_key_sc_element: 
 	.platform_independent_realization_of_sc_agent_of_checking_existence_of_max_studied_object_class_of_subject_domain; 
@@ -30,8 +31,8 @@ lib_component_agent_of_checking_existence_of_max_studied_object_class_of_subject
 action_of_checking_existence_of_max_studied_class_of_subject_domain 
 <- sc_node_not_relation;
 => nrel_main_idtf:
-	[действие. проверить наличие максимального класса исследования у предметной области]
+	[действие. проверить указание максимального класса объектов исследования у предметных областей в рамках заданной структуры]
 	(* <- lang_ru;; *);
 => nrel_main_idtf:
-	[action. check existence of maximum studied object class of subject domain]
+	[action. check existence of maximum studied object class of subject domains within the given structure]
 	(* <- lang_en;; *);;

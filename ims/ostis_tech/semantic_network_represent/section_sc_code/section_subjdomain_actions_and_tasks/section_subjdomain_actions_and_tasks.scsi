@@ -1,10 +1,12 @@
-subject_domain_of_actions
+subject_domain_of_actions_and_tasks
 => nrel_main_idtf:
-	[Предметная область действий]
+	[Предметная область действий и задач]
 	(* <- lang_ru;; *);
-	[Subject domain of actions]
+	[Subject domain of actions and tasks]
 	(* <- lang_en;; *);
 <- subject_domain;
+<- sc_node_struct;
+<- structure;
 => nrel_primary_elements_class_private_subject_domain: subject_domain_of_actions_executing_in_sc_memory;
 => nrel_primary_elements_class_private_subject_domain: subject_domain_of_abstract_sc_agents;
 -> rrel_maximum_studied_object_class: 
@@ -69,6 +71,7 @@ subject_domain_of_actions
 	nrel_else;
 	nrel_result;
 	nrel_performer;
+	nrel_executing_actions_class;
 	nrel_customer;
 	nrel_initiator;
 	nrel_object;
@@ -802,13 +805,14 @@ nrel_abstract_sub_action
 	[класс действий, частных для каждого из действий, принадлежащих некоторому классу*]
 	(* <- lang_ru;; *);;
 
-nrel_goto
+nrel_goto_new
 <- sc_node_norole_relation;
 => nrel_main_idtf:
 	[последовательность действий*]
 	(* <- lang_ru;; *);
 	[sequence of actions*]
 	(* <- lang_en;; *);
+<- main_concept;
 
 => nrel_idtf:
 	[порядок действий*]
@@ -836,8 +840,30 @@ nrel_goto
 	*);
 => nrel_inclusion:
 	nrel_then;
-	nrel_else;
+	nrel_else_new;
 	nrel_error;;
+
+nrel_goto
+<- sc_node_norole_relation;
+=> nrel_main_idtf:
+	[#следующий оператор*]
+	(* <- lang_ru;; *);
+	[#next operator*]
+	(* <- lang_en;; *);
+	<- main_to_auxilary_concept;	
+
+<- rrel_key_sc_element:
+	...
+	(*
+		<- explanation;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				"file://content_html/old_explanation_for_nrel_goto.html"
+			(* <- lang_ru;;	*);;
+		*);;
+	*);;
 
 nrel_conjunction_of_previous_actions
 <- sc_node_norole_relation;
@@ -910,7 +936,8 @@ nrel_then
 	(* <- lang_en;; *);
 
 <- order_relation;
-	
+<- main_concept;
+
 <- rrel_key_sc_element:
 	...
 	(*
@@ -924,13 +951,15 @@ nrel_then
 		*);;
 	*);;
 	
-nrel_else
+nrel_else_new
 <- sc_node_norole_relation;
 => nrel_main_idtf:
 	[последовательность действий при отрицательном результате*]
 	(* <- lang_ru;; *);
 	[sequence of actions after negative result*]
 	(* <- lang_en;; *);
+
+<- main_concept;
 	
 => nrel_idtf:
 	[else*]
@@ -947,6 +976,29 @@ nrel_else
 		(*
 		-> rrel_example:
 				"file://content_html/explanation_for_nrel_else.html"
+			(* <- lang_ru;;	*);;
+		*);;
+	*);;
+
+	
+nrel_else
+<- sc_node_norole_relation;
+=> nrel_main_idtf:
+	[#следующий оператор при безуспешном выполнении*]
+	(* <- lang_ru;; *);
+	[#next operator after unsuccess*]
+	(* <- lang_en;; *);
+	<- main_to_auxilary_concept;
+	
+<- rrel_key_sc_element:
+	...
+	(*
+		<- explanation;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+				"file://content_html/old_explanation_for_nrel_else.html"
 			(* <- lang_ru;;	*);;
 		*);;
 	*);;
@@ -1453,6 +1505,30 @@ nrel_performer
 			(* <- lang_ru;;	*);;
 		*);;
 	*);;	
+
+nrel_executing_actions_class
+<- sc_node_norole_relation;
+=> nrel_main_idtf:
+	[класс выполняемых действий*]
+	(* <- lang_ru;; *);
+	[class of executing actions*]
+	(* <- lang_en;; *);
+=> nrel_idtf:
+	[класс действий, выполняемых классом субъектов*]
+	(* <- lang_ru;; *);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+		<- explanation;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+				"file://content_html/explanation_for_nrel_executing_actions_class.html"
+			(* <- lang_ru;;	*);;
+		*);;
+	*);;
 	
 nrel_customer
 <- sc_node_norole_relation;
